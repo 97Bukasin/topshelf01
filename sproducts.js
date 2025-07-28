@@ -9,13 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ==== Populate Main Product Details ====
   const mainImg = document.getElementById("MainImg");
-  mainImg.src = product.image;
-  mainImg.alt = product.name;
-
   const titleEl = document.getElementById("product-title");
   const priceEl = document.getElementById("product-price");
   const descEl = document.getElementById("product-desc");
 
+  mainImg.src = product.image;
+  mainImg.alt = product.name;
   titleEl.textContent = product.name;
   priceEl.textContent = `₦${product.price.toLocaleString()} each`;
   descEl.textContent = product.description;
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   totalPriceEl.style.transition = "opacity 0.3s ease";
   priceEl.parentNode.insertBefore(totalPriceEl, descEl);
 
-  // ==== Product Details Section ====
   const productDetails = document.querySelector(".product-details");
   const orderBtn = productDetails.querySelector(".order-btn");
 
@@ -50,9 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   plusBtn.textContent = "+";
   plusBtn.className = "qty-btn";
 
-  quantityContainer.appendChild(minusBtn);
-  quantityContainer.appendChild(qtyDisplay);
-  quantityContainer.appendChild(plusBtn);
+  quantityContainer.append(minusBtn, qtyDisplay, plusBtn);
   productDetails.insertBefore(quantityContainer, orderBtn);
 
   let quantity = 1;
@@ -83,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==== Variant Selector ====
-  if (product.variants && product.variants.length > 0) {
+  if (product.variants?.length) {
     const variantContainer = document.createElement("div");
     variantContainer.className = "variant-selector";
 
@@ -101,8 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       variantSelect.appendChild(option);
     });
 
-    variantContainer.appendChild(variantLabel);
-    variantContainer.appendChild(variantSelect);
+    variantContainer.append(variantLabel, variantSelect);
     productDetails.insertBefore(variantContainer, quantityContainer);
 
     variantSelect.addEventListener("change", () => {
@@ -116,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==== Thumbnails ====
-  if (product.thumbnails && product.thumbnails.length > 0) {
+  if (product.thumbnails?.length) {
     const thumbnailContainer = document.createElement("div");
     thumbnailContainer.classList.add("thumbnail-row");
 
@@ -124,8 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const thumbImg = document.createElement("img");
       thumbImg.src = thumb;
       thumbImg.alt = product.name;
-      thumbImg.classList.add("thumb");
-
+      thumbImg.className = "thumb";
       if (index === 0) thumbImg.classList.add("active");
 
       thumbImg.addEventListener("click", () => {
@@ -141,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==== Highlights List ====
-  if (product.highlights && product.highlights.length > 0) {
+  if (product.highlights?.length) {
     const highlightList = document.createElement("ul");
     highlightList.className = "highlight-list";
 
@@ -151,45 +145,43 @@ document.addEventListener("DOMContentLoaded", () => {
       highlightList.appendChild(li);
     });
 
-    document.querySelector(".product-details").appendChild(highlightList);
+    productDetails.appendChild(highlightList);
   }
 
- function loadRelatedProducts(currentProductId) {
-  const allProducts = JSON.parse(localStorage.getItem("allProducts") || "[]");
-  const relatedContainer = document.querySelector(".carousel-container");
+  // ==== Load Related Products ====
+  function loadRelatedProducts(currentProductId) {
+    const allProducts = JSON.parse(localStorage.getItem("allProducts") || "[]");
+    const relatedContainer = document.querySelector(".carousel-container");
+    if (!relatedContainer) return;
 
-  // Filter and shuffle to avoid same order every time
-  let related = [];
+    let related = [];
 
-if (product.relatedIds && product.relatedIds.length > 0) {
-  related = allProducts.filter(p => product.relatedIds.includes(p.id));
-} else {
-  // Fallback: random selection
-  related = allProducts
-    .filter(p => p.id !== currentProductId)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 6);
-}
+    if (product.relatedIds?.length) {
+      related = allProducts.filter(p => product.relatedIds.includes(p.id));
+    } else {
+      related = allProducts
+        .filter(p => p.id !== currentProductId)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 6);
+    }
 
+    related.forEach(relatedProduct => {
+      const card = document.createElement("div");
+      card.className = "related-card";
+      card.innerHTML = `
+        <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
+        <h4>${relatedProduct.name}</h4>
+        <p>₦${relatedProduct.price.toLocaleString()}</p>
+      `;
 
-  related.forEach(product => {
-    const card = document.createElement("div");
-    card.className = "related-card";
+      card.addEventListener("click", () => {
+        localStorage.setItem("selectedProduct", JSON.stringify(relatedProduct));
+        window.location.href = "sproduct.html";
+      });
 
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h4>${product.name}</h4>
-      <p>₦${product.price.toLocaleString()}</p>
-    `;
-
-    card.addEventListener("click", () => {
-      localStorage.setItem("selectedProduct", JSON.stringify(product));
-      window.location.href = "sproduct.html";
+      relatedContainer.appendChild(card);
     });
+  }
 
-    relatedContainer.appendChild(card);
-  });
-}
-
-loadRelatedProducts(product.id);
+  loadRelatedProducts(product.id);
 });
