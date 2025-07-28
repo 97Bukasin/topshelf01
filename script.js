@@ -127,3 +127,35 @@ function renderPagination(totalProducts, currentPage) {
 }
 
 displayProducts(); // will default to page 1
+
+function viewProduct(productId) {
+  const product = allProducts.find(p => p.id === productId);
+  if (product) {
+    localStorage.setItem("selectedProduct", JSON.stringify(product));
+    localStorage.setItem("allProducts", JSON.stringify(allProducts));
+    window.location.href = "sproduct.html";
+  }
+}
+
+
+// Hamburger toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const bar = document.getElementById("bar");
+  const nav = document.getElementById("navbar");
+  const close = document.getElementById("close");
+
+  if (bar && nav) {
+    bar.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+  }
+
+  if (close && nav) {
+    close.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+  }
+});
+
+
+
