@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sproduct.css" />
+  <script src="script.js" defer></script> <!-- For navbar logic -->
+  <script src="sproducts.js" defer></script> <!-- For displaying product -->
+</head>
+<body>
+  <!-- Header -->
+  <section id="header">
+    <a href="#"><img src="img/logo.jp" class="logo" alt="Top Shelf Liquors" /></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="lg-bag"><a href="cart.html" class="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <!-- Product Details -->
+  <section class="single-product">
+    <div class="product-image">
+      <img id="MainImg" src="" alt="Product Image" />
+    </div>
+    <div class="product-details">
+      <h4 id="product-title">Product Title</h4>
+      <h2 id="product-price">₦0</h2>
+      <p id="product-desc">Description</p>
+      <a href="https://linktr.ee/yourbrand" target="_blank" class="order-btn">
+        <i class="fa-solid fa-link"></i> Order Now
+      </a>
+    </div>
+  </section>
+
+<section id="related-products" class="related-section">
+  <h3 class="related-title">You May Also Like</h3>
+  <div class="carousel-container"></div>
+</section>
+
+
+  <!-- Footer -->
+ <footer id="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h4>Top Shelf Liquor</h4>
+      <p>Your trusted source for premium spirits and luxury drinks.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Customer Support</h4>
+      <ul>
+        <li><a href="#">Shipping & Delivery</a></li>
+        <li><a href="#">Returns Policy</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Top Shelf Liquor. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
+</body>
+</html>
