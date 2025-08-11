@@ -258,14 +258,17 @@ button.white {
   position: relative;
 }
 
-#product1 .pro:hover {
-  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+#product1 .pro:hover img {
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 #product1 .pro img {
-  width: 100px;
-  height: 100px;
-  border-radius: 20px;
+  width: 180px; /* Bigger image size */
+  height: 180px;
+  object-fit: contain; /* Keeps aspect ratio */
+  display: block;
+  margin: 0 auto; /* Centers horizontally */
+  transition: transform 0.3s ease; /* Smooth zoom */
 }
 
 #product1 .pro .des {
