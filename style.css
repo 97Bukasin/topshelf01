@@ -10,7 +10,7 @@
 
 body {
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: black;
   color: #222;
 }
 * {
@@ -89,17 +89,31 @@ button.white {
 
 /* Header */
 #header {
+  position: fixed; /* This makes it always stay in place */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 80px;
   background: black;
-  box-shadow: 0 5px 15px rgb(0, 0, 0, 0.06);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
-  position: sticky;
   top: 0;
   left: 0;
+  width: 100%; /* Prevents shrinking */
 }
+
+
+.logo {
+  max-height: 50px; /* keeps it from stretching the navbar */
+  width: auto; /* maintains aspect ratio */
+  display: block;
+}
+
+#header a.logo {
+  display: flex;
+  align-items: center;
+}
+
 
 #navbar {
   display: flex;
@@ -149,7 +163,7 @@ button.white {
 
 /* Home Page Hero */
 #hero {
-  background-image: url("img/hero4.jpg");
+  background-image: url("img/Untitled\ design.png");
   height: 90vh;
   width: 100%;
   background-position: top 25% right 0%;
@@ -160,7 +174,16 @@ button.white {
   justify-content: center;
 }
 
+#hero .normal{
+  color: white;
+}
 #hero h4 {
+  color: red;
+  padding-bottom: 15px;
+}
+
+#hero h2 {
+  color: whitesmoke;
   padding-bottom: 15px;
 }
 
@@ -169,7 +192,6 @@ button.white {
 }
 
 #hero button {
-  background-image: url(img/hero1.jpg);
   background-color: transparent;
   color: 0;
   border: 0;
@@ -188,12 +210,16 @@ button.white {
   flex-wrap: wrap;
 }
 
+#popcategories1{
+  color: black;
+}
+
 #feature .fe-box {
   width: 180px;
   text-align: center;
   padding: 25px 15px;
   box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
-  border: 1px solid #cce7de;
+  border: none;
   border-radius: 4px;
   margin: 15px 0;
   transition: box-shadow 0.3s ease;
@@ -342,7 +368,7 @@ button.white {
 }
 
 .shop-now-btn {
-  background-color: #088178;
+  background-color: red;
   color: white;
   padding: 14px 28px;
   font-size: 16px;
@@ -504,7 +530,7 @@ button.white {
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  background-color: #fff;
+  background-color: black;
 }
 
 .btn-more-deals {
@@ -583,30 +609,31 @@ button.white {
 /* About Promo Section */
 .about-promo {
   padding: 60px 8%;
-  background-color: #f5f5f5;
+  background-color: black;
   text-align: center;
 }
 
 .about-content {
+
   max-width: 800px;
   margin: 0 auto;
 }
 
 .about-content h2 {
   font-size: 36px;
-  color: #222;
+  color: whitesmoke;
   margin-bottom: 20px;
 }
 
 .about-content p {
   font-size: 16px;
-  color: #555;
+  color: whitesmoke;
   margin-bottom: 30px;
   line-height: 1.6;
 }
 
 .learn-more-btn {
-  background-color: #088178;
+  background-color: red;
   color: white;
   padding: 12px 24px;
   font-size: 16px;
@@ -617,7 +644,7 @@ button.white {
 }
 
 .learn-more-btn:hover {
-  background-color: #06685f;
+  background-color: black;
 }
 
 /* Media Queries */
@@ -1053,17 +1080,23 @@ button.white {
 #featured-products {
   padding: 60px 20px;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: black;
 }
 
 #featured-products h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #222;
+  color: white;
+}
+
+
+#featured-products h2,
+ {
+  color: :-moz-only-whitespace; /* softer white for less glare */
 }
 
 #featured-products p {
-  color: #555;
+  color: white;
   margin-bottom: 30px;
 }
 
@@ -1211,3 +1244,336 @@ button.white {
     cursor: pointer;
   }
 }
+
+#page-header h2 ,
+#page-header p{
+  color: white;
+}
+
+
+/* Hero Section */
+#blog-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #000, #222);
+  color: #f5f5f5;
+}
+
+#blog-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#blog-hero p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+/* Blog Container */
+#blog {
+  padding: 50px 80px;
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Blog Post Cards */
+.blog-post {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-post h3 {
+  margin: 15px;
+  font-size: 1.4rem;
+  color: #ffb400; /* Gold accent */
+}
+
+.blog-post p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.blog-post a {
+  display: inline-block;
+  margin: 0 15px 20px;
+  padding: 8px 15px;
+  background: #ffb400;
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.blog-post a:hover {
+  background: #e09a00;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 5px;
+  background: #1a1a1a;
+  color: #ffb400;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.pagination a.active,
+.pagination a:hover {
+  background: #ffb400;
+  color: #000;
+}
+
+
+/* ===== Contact Page Styling ===== */
+
+/* Hero Section */
+.page-header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.page-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  font-size: 18px;
+  color: #e2b714; /* gold accent */
+}
+
+/* Contact Section Layout */
+#contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 80px;
+  background: #111; /* dark background */
+  color: white;
+  gap: 30px;
+}
+
+#contact-details > div {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+/* Left Column (Info) */
+#contact-details span {
+  font-size: 14px;
+  color: #e2b714;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#contact-details h2 {
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+#contact-details h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #e2b714;
+}
+
+#contact-details p {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Map */
+#contact-details iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* Right Column (Form) */
+#contact-details form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#contact-details input,
+#contact-details textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #222;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  outline: none;
+}
+
+#contact-details input::placeholder,
+#contact-details textarea::placeholder {
+  color: #aaa;
+}
+
+#contact-details button.normal {
+  background: #e2b714;
+  color: black;
+  padding: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#contact-details button.normal:hover {
+  background: #f5d44f;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #contact-details {
+    padding: 30px 20px;
+  }
+}
+
+/* Blog Page Styling */
+body {
+  background-color: #111; /* Deep black background */
+  color: #f5f5f5; /* Light text */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+#blog-hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to right, #000, #222);
+  color: #f5f5f5;
+}
+
+#blog-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#blog-hero p {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+/* Blog Container */
+#blog {
+  padding: 50px 80px;
+}
+
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Blog Post Cards */
+.blog-post {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-post h3 {
+  margin: 15px;
+  font-size: 1.4rem;
+  color: #ffb400; /* Gold accent */
+}
+
+.blog-post p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.blog-post a {
+  display: inline-block;
+  margin: 0 15px 20px;
+  padding: 8px 15px;
+  background: #ffb400;
+  color: #000;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.blog-post a:hover {
+  background: #e09a00;
+}
+
+.blog-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.pagination a {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 5px;
+  background: #1a1a1a;
+  color: #ffb400;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.pagination a.active,
+.pagination a:hover {
+  background: #ffb400;
+  color: #000;
+}
+
