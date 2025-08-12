@@ -73,7 +73,7 @@ const allProducts = [
 { id: 59, name: "Bacardi Spiced", price: 15850, image: "img/Products/bacardispice1.JPG",  thumbnails: ["img/Products/bacardispice1.JPG", "img/Products/bacardispice2.JPG", "img/Products/bacardispice3.JPG"], category: "rum", relatedIds: [58, 60, 61] },
 { id: 60, name: "Bacardi Blanco", price: 17500, image: "img/Products/bacardiblanco3.JPG",  thumbnails: ["img/Products/bacardiblanco3.JPG", "img/Products/bacardiblanco2.JPG", "img/Products/bacardiblanco3.JPG"], category: "rum", relatedIds: [58, 59, 61] },
   // === Champagne ===sss
-{ id: 54, name: "Moet & Chandon Nectar Imperial", price: 107000, image: "img/Products/moetnectimp1.jpg",  thumbnails: ["img/Products/moetnectimp1.jpg", "img/Products/moetnectimp2.jpg", "img/Products/moetnectimp1.jpg"], category: "champagne", relatedIds: [55, 56, 57] },
+{ id: 54, name: "Moet & Chandon Nectar Imperial", price: 107000, image: "img/Products/moetnectimp1.jpg",  thumbnails: ["img/Products/moetnectimp1.JPG", "img/Products/moetnectarimp2.JPG", "img/Products/moetnectimp1.JPG"], category: "champagne", relatedIds: [55, 56, 57] },
 { id: 55, name: "Moet & Chandon Nectar Rose", price: 120000, image: "img/Products/moetrose1.JPG",  thumbnails: ["img/Products/moetrose1.JPG", "img/Products/moetrose2.JPG", "img/Products/moetrose3.JPG"], category: "champagne", relatedIds: [54, 56, 57] },
 { id: 56, name: "Moet & Chandon Brut Imperial", price: 98000, image: "img/Products/moetbrut.JPG",  thumbnails: ["img/Products/moetbrut.JPG", "img/Products/moetbrut2.JPG", "img/Products/moetbrut.JPG"], category: "champagne", relatedIds: [54, 55, 57] },
 { id: 57, name: "BELAIRE Rosé", price: 70000, image: "img/Products/belair1.JPG",  thumbnails: ["img/Products/belair1.JPG", "img/Products/belair2.JPG", "img/Products/belair3.JPG"], category: "champagne", relatedIds: [54, 55, 56] },
@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 
